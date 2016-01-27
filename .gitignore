@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/XPath Generator/bin
+/XPath Generator/obj
+/XPath Generator/XPath Generator_TemporaryKey.pfx
+/XPath Generator/XPath Generator.vbproj.user
