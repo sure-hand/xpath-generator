@@ -21,11 +21,13 @@
             <Grid >
                 <ListBox x:Name="lbGlobalElements" HorizontalAlignment="Left" Height="192" Margin="116,10,0,0" VerticalAlignment="Top" Width="576" IsSynchronizedWithCurrentItem="True"/>
                 <Label Content="XSD Elements:" Height="28" HorizontalAlignment="Left" Margin="25,10,0,0" x:Name="Label3_Copy2" VerticalAlignment="Top" />
-                <Button Content="Generate XPath" Height="23" HorizontalAlignment="Left" Margin="575,230,0,0" x:Name="btnGo" VerticalAlignment="Top" Width="117" />
+                <Button Content="Generate XPath" Height="23" HorizontalAlignment="Left" Margin="575,230,0,0" x:Name="btnGenerateXPath" VerticalAlignment="Top" Width="117" />
                 <CheckBox x:Name="cbShowLength" Content="Show Min/Max Length" HorizontalAlignment="Left" Margin="116,218,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="cbShowNillable" Content="Show Nillable" HorizontalAlignment="Left" Margin="116,238,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="cbShowBaseTypeName" Content="Show Base Type Name" HorizontalAlignment="Left" Margin="281,218,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="cbShowOccurs" Content="Show Min/Max Occurs" HorizontalAlignment="Left" Margin="281,241,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="cbIndicateRepeatble" Content="Indicate Repeatable" HorizontalAlignment="Left" Margin="116,258,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="cbAutoCopyToClipboard" Content="Auto copy to clipboard" HorizontalAlignment="Left" Margin="116,278,0,0" VerticalAlignment="Top" IsChecked="True"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBoxStep3" Header="Step 3. Check XPath and copy to clipboard" HorizontalAlignment="Left" Margin="10,438,0,0" VerticalAlignment="Top" Height="329" Width="714">

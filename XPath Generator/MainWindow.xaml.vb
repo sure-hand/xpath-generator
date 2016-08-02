@@ -19,7 +19,7 @@ Class MainWindow
     End Sub
 
 
-    Private Sub btnGo_Click(sender As Object, e As RoutedEventArgs) Handles btnGo.Click
+    Private Sub btnGenerateXPath_Click(sender As Object, e As RoutedEventArgs) Handles btnGenerateXPath.Click
         If lbGlobalElements.SelectedItem Is Nothing Then
             MsgBox("No elements selected")
             Exit Sub
@@ -28,10 +28,15 @@ Class MainWindow
         runMode.showNillable = Me.cbShowNillable.IsChecked
         runMode.showBaseTypeName = Me.cbShowBaseTypeName.IsChecked
         runMode.showOccurs = Me.cbShowOccurs.IsChecked
+        runMode.indicateRepeatble = Me.cbIndicateRepeatble.IsChecked
+
         xsdHandler.GenerateXPath(lbGlobalElements.SelectedItem.Name, lbGlobalElements.SelectedItem.Namespace, runMode)
 
         Me.tbXPath.Text = xsdHandler.XPath
         Me.tbXPathErrors.Text = xsdHandler.XPathErrors
+        If Me.cbAutoCopyToClipboard.IsChecked Then
+            System.Windows.Clipboard.SetText(Me.tbXPath.Text)
+        End If
     End Sub
 
     Private Sub btnCopy_Click(sender As Object, e As RoutedEventArgs) Handles btnCopy.Click

@@ -3,5 +3,6 @@
     Public showNillable As Boolean = False
     Public showBaseTypeName As Boolean = False
     Public showOccurs As Boolean = False
+    Public indicateRepeatble As Boolean = False
 
 End Class

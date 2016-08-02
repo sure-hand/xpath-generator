@@ -51,6 +51,12 @@ Public Class XMLSchemaProcessor
             nillableString = "{nillable}"
         End If
         occursString = ""
+
+        If runMode.indicateRepeatble Then
+            If xsdElement.MaxOccurs > 1 Then
+                occursString = "[]"
+            End If
+        End If
         If runMode.showOccurs Then
             If xsdElement.MinOccurs <> 1 Or xsdElement.MaxOccurs <> 1 Then
                 occursStringMin = xsdElement.MinOccurs
@@ -59,12 +65,12 @@ Public Class XMLSchemaProcessor
                 Else
                     occursStringMax = "1"
                 End If
-                occursString = occursStringMin & ".." & occursStringMax
+                occursString = "[" & occursStringMin & ".." & occursStringMax & "]"
             End If
         End If
 
         If occursString.Length > 0 Or nillableString.Length > 0 Then
-            currentXPath = currentXPath & "/" & xsdElement.Name & "[" & occursString & "]" & nillableString
+            currentXPath = currentXPath & "/" & xsdElement.Name & occursString & nillableString
         Else
             currentXPath = currentXPath & "/" & xsdElement.Name
         End If

@@ -11,11 +11,11 @@ Imports System.Windows
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("XPath_Generator")>
+<Assembly: AssemblyTitle("XPath Generator")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyCompany("Miks Rozenbergs")>
 <Assembly: AssemblyProduct("XPath_Generator")>
-<Assembly: AssemblyCopyright("Copyright ©  2016")>
+<Assembly: AssemblyCopyright("Copyright © 2016")>
 <Assembly: AssemblyTrademark("")>
 <Assembly: ComVisible(false)>
 
@@ -55,5 +55,5 @@ Imports System.Windows
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.1.1.*")>
-<Assembly: AssemblyFileVersion("1.1.1.*")>
+<Assembly: AssemblyVersion("1.1.2.*")>
+<Assembly: AssemblyFileVersion("1.1.2.*")>
