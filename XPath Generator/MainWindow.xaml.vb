@@ -1,5 +1,7 @@
 ﻿Imports Microsoft.Win32
 Imports System.Reflection
+Imports System.IO
+
 
 Class MainWindow
     Dim xsdHandler As New XMLSchemaProcessor
@@ -38,6 +40,31 @@ Class MainWindow
             System.Windows.Clipboard.SetText(Me.tbXPath.Text)
         End If
     End Sub
+
+    Private Sub btnGenerateReport_Click(sender As Object, e As RoutedEventArgs) Handles btnGenerateReport.Click
+        If lbGlobalElements.SelectedItem Is Nothing Then
+            MsgBox("No elements selected")
+            Exit Sub
+        End If
+
+        runMode.showLength = Me.cbShowLength.IsChecked
+        runMode.showNillable = Me.cbShowNillable.IsChecked
+        runMode.showBaseTypeName = Me.cbShowBaseTypeName.IsChecked
+        runMode.showOccurs = Me.cbShowOccurs.IsChecked
+        runMode.indicateRepeatble = Me.cbIndicateRepeatble.IsChecked
+
+
+        If Not Directory.Exists(tbOutputFolder.Text) Then
+            Directory.CreateDirectory(tbOutputFolder.Text)
+        End If
+        For Each selectedElement In lbGlobalElements.SelectedItems
+            xsdHandler.GenerateXPath(selectedElement.Name, lbGlobalElements.SelectedItem.Namespace, runMode)
+            File.WriteAllText(tbOutputFolder.Text & selectedElement.Name & ".xpath", xsdHandler.XPath)
+        Next
+
+        Me.tbXPathErrors.Text = "Output created in " & tbOutputFolder.Text
+    End Sub
+
 
     Private Sub btnCopy_Click(sender As Object, e As RoutedEventArgs) Handles btnCopy.Click
         System.Windows.Clipboard.SetText(Me.tbXPath.Text)
